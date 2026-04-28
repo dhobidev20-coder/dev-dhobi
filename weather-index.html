@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌤️ WeatherDash - Weather Dashboard</title>
+    <link rel="stylesheet" href="weather-styles.css">
+</head>
+<body>
+    <div class="weather-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌤️ WeatherDash</h1>
+            <p class="subtitle">Beautiful Weather Information</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="cityInput" 
+                class="city-input" 
+                placeholder="Enter city name..."
+                autocomplete="off"
+            >
+            <button class="search-btn" onclick="searchWeather()">🔍 Search</button>
+            <button class="location-btn" onclick="getLocation()">📍 Current Location</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <!-- Main Weather Display -->
+        <div id="weatherContent" class="weather-content hidden">
+            <!-- Current Weather -->
+            <div class="current-weather">
+                <div class="city-info">
+                    <h2 id="cityName"></h2>
+                    <p id="date" class="date"></p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temp-section">
+                        <span id="temperature" class="temperature"></span>
+                        <span id="weatherIcon" class="weather-icon"></span>
+                    </div>
+                    <p id="description" class="description"></p>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <span class="icon">💧</span>
+                        <span class="label">Humidity</span>
+                        <span id="humidity" class="value"></span>
+                    </div>
+                    <div class="detail-card">
+                        <span class="icon">💨</span>
+                        <span class="label">Wind Speed</span>
+                        <span id="windSpeed" class="value"></span>
+                    </div>
+                    <div class="detail-card">
+                        <span class="icon">🔽</span>
+                        <span class="label">Pressure</span>
+                        <span id="pressure" class="value"></span>
+                    </div>
+                    <div class="detail-card">
+                        <span class="icon">👁️</span>
+                        <span class="label">Visibility</span>
+                        <span id="visibility" class="value"></span>
+                    </div>
+                    <div class="detail-card">
+                        <span class="icon">🌡️</span>
+                        <span class="label">Feels Like</span>
+                        <span id="feelsLike" class="value"></span>
+                    </div>
+                    <div class="detail-card">
+                        <span class="icon">☁️</span>
+                        <span class="label">Cloudiness</span>
+                        <span id="clouds" class="value"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="forecast-section">
+                <h3>📅 5-Day Forecast</h3>
+                <div id="forecastContainer" class="forecast-container">
+                    <!-- Forecast cards will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <div class="info-card">
+                    <h4>🌅 Sunrise & Sunset</h4>
+                    <p id="sunrise" class="info-text"></p>
+                    <p id="sunset" class="info-text"></p>
+                </div>
+                <div class="info-card">
+                    <h4>🌍 Coordinates</h4>
+                    <p id="coordinates" class="info-text"></p>
+                </div>
+                <div class="info-card">
+                    <h4>📍 Location Details</h4>
+                    <p id="country" class="info-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Welcome State -->
+        <div id="welcomeMessage" class="welcome-message">
+            <div class="welcome-content">
+                <h2>👋 Welcome to WeatherDash!</h2>
+                <p>Search for a city or use your current location to see real-time weather information.</p>
+                <div class="welcome-features">
+                    <div class="feature">
+                        <span>🔍</span>
+                        <p>Search any city worldwide</p>
+                    </div>
+                    <div class="feature">
+                        <span>📍</span>
+                        <p>Get weather for your location</p>
+                    </div>
+                    <div class="feature">
+                        <span>📅</span>
+                        <p>View 5-day forecast</p>
+                    </div>
+                    <div class="feature">
+                        <span>⚡</span>
+                        <p>Real-time updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="weather-script.js"></script>
+</body>
+</html>
